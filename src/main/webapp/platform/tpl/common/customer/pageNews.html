@@ -1,0 +1,22 @@
+{#if $T.data.length>0}
+	{#foreach $T.data as record}
+		<div class="information"  onclick="goView('#_pageMessageBox','{$T.record.id}')">
+			<ul>
+				<li class="avatars">
+					{#if $T.record.headImgUrl}
+					<span><img src="{$T.record.headImgUrl}" class=""></span>
+					{#else}
+					<span><img src="images/tx.png" class=""></span>
+					{#/if}
+				</li>
+				<li class="nicknames">
+					<p class="nick-names">&nbsp;{$T.record.nickname} </p>
+					<p class="">&nbsp; {$T.record.content} </p>
+				</li>
+				<li class="directions">
+					<img src="images/zb.png">
+				</li>
+			</ul>
+		</div>
+	{#/for}
+{#/if}

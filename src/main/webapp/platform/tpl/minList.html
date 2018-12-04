@@ -1,0 +1,32 @@
+<div class="button" id="indexMinList{$T.index}">
+    <table cellpadding="0" cellspacing="0" border="0" style="width: 240px;">
+        <tbody>
+        <tr>
+            <td class="table-tl"></td>
+            <td class="table-tm"></td>
+            <td class="table-tr"></td>
+        </tr>
+        <tr>
+            <td class="table-lm"></td>
+            <td class="table-mm" align="right">
+                <div class="title"><p>{$T.phone}</p></div>
+                <div class="buttons">
+                    <div class="win-btn-spacer"></div>
+                    <div class="WinBtnSet winreg">
+                        <a href="javascript:void(0)" class="enlarge"  onclick="{$T.callRecordMaxClientFunc}('{$T.callRecordId}')"></a>
+                        <div class="win-btn-spacer"></div>
+                    </div>
+                    <a href="javascript:void(0)" class="close-c" onclick="{$T.callRecordCloseMinClientFunc}('{$T.callRecordId}')"></a>
+                    <div class="win-btn-rightedge"></div>
+                </div>
+            </td>
+            <td class="table-rm"></td>
+        </tr>
+        <tr>
+            <td class="table-bl"></td>
+            <td class="table-bm"></td>
+            <td class="table-br"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

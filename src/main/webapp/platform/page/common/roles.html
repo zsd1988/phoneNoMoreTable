@@ -1,0 +1,78 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+        <h1><b>角色管理</b> </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="col-md-4 left">
+                <h4 class="m-t-0"><b>角色列表</b> </h4>
+                <div class="role-list">
+                    <ul>
+                        <li><i class="glyphicon glyphicon-minus"></i> 所有角色
+                            <ul id="rolesList">
+
+                            </ul>
+                        </li>
+                        <li class="">
+                            <div class="pull-center">
+                                <button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#con-role-modal"  id="addRoleButton">新增</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 content">
+                <h4 class="m-t-0"><b>菜单权限</b> </h4>
+                <div class="role-list">
+                    <ul id="mapPermission" class="ztree">
+                    </ul>
+                    <div class="pull-center">
+                        <button type="button" class="btn btn-success waves-effect waves-light"  onclick="savePermission()">保存</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 right">
+                <h4 class="m-t-0"><b>功能设置</b> </h4>
+                <div class="role-list">
+                    <ul id="mapFunctions" class="ztree">
+                    </ul>
+                    <div class="pull-center">
+                        <button type="button" class="btn btn-success waves-effect waves-light"  onclick="saveFunctions()">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="con-role-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button"  id="closeButton" class="close" data-dismiss="modal" aria-hidden="true"  onclick="clearModalData()">×</button>
+                <h4 class="modal-title" id="title">添加角色：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden"   id="id"   name="id"   >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">角色名称  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" required  data-parsley-trigger="focusout"  name="roleType" id="roleType"  placeholder="单行输入"  >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" onclick="clearModalData()">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="saveDepartment()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,90 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+        <h1>每日词条</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="col-md-12">
+                <div class="input-group-time col-md-3">
+                    <label class="control-label col-md-4">类型:</label>
+                    <div class="col-md-8">
+                        <select class="form-control selectpicker" id="dayHintTypeSearch"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#modal"
+                        onclick="addIntentionHint()">新增
+                </button>
+                <button class="btn btn-default waves-effect waves-light" onclick="reset()">重置
+                </button>
+                <button class="btn btn-success waves-effect waves-light" onclick="query()">查询
+                </button>
+            </div>
+            <table id="table">
+            </table>
+        </div>
+    </div>
+</div>
+
+<form id="modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate>
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="title">添加词条：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="id" name="id" style="display: none">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">类型 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker" id="type" name="type">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">内容 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <textarea class="form-control" rows="5" required id="content" name="content"></textarea>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">概率 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="number" class="form-control" required data-parsley-trigger="focusout"
+                                       id="rate" name="rate">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light" onclick="save()">保存
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,27 @@
+{
+"touser":"{{openid}}",
+"template_id":"6MuY60khCbh1CMYe5yS1ye0FU0ZlWzXU9wtnkNyznz0",
+"topcolor":"#FF0000",
+"data":{
+	"first": {
+	"value":"{{info}}",
+	"color":"#173177"
+	},
+	"keyword1":{
+		"value":"{{partyname}}",
+		"color":"#173177"
+	},
+	"keyword2": {
+		"value":"{{cardname}}",
+		"color":"#173177"
+	},
+	"keyword3": {
+		"value":"{{nickname}}",
+		"color":"#173177"
+	},
+	"keyword4": {
+		"value":"{{time}}",
+		"color":"#173177"
+	}
+}
+}

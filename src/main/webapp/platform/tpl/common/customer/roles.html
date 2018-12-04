@@ -1,0 +1,7 @@
+{#if $T.data.length>0}
+    {#foreach $T.data as record}
+        <li onclick="showPermission(this,'{$T.record.id}')"  ondblclick="editRoleType(this,'{$T.record.id}','{$T.record.name}')">{$T.record.name}</li>
+    {#/for}
+{#/if}
+
+

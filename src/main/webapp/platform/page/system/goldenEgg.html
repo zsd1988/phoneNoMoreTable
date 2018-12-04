@@ -1,0 +1,218 @@
+<!--<div style="text-align: center">-->
+<!--<image id="image" style="width: 100%;height: 100%" src="img/1.jpg">-->
+<!--</image>-->
+<!--<span style="color: white;text-align: center;font-size: 30px;position: relative;" id="goldenHint"></span>-->
+<!--</div>-->
+<div class="full-w page1" id="contentDiv">
+    <div class="wrap-content">
+        <div class="danbox">
+            <ul>
+                <li class="small">
+                    <p class="p2-di" style="    top: -60px;
+    left: 10px;
+    position: relative;">
+                        <img class="normal" src="img/egg/di.png">
+                    </p>
+                    <p class="p2-egg" style="    top: -500px;
+    position: relative;">
+                        <img class="normal" src="img/egg/egg.png">
+                    </p>
+                    <p class="p2-chui" style="display: none;  ">
+                        <img src="img/egg/1-0000.gif" style=" position: relative;z-index: 50;
+          top: -15px;
+    height: 400px;
+    width: 334px;
+    left: -120px;"></p>
+                    <p class="p2-ps" style="display: none;">
+                        <img src="assets/images/p2-ps.png"></p>
+                    <p class="p2-finish" style="display: none;    left: 140px;
+    position: relative;
+    top: -417px;">
+                        <img src="img/egg/egg2.png"></p>
+                    <p class="p2-hit" style="display: none;     position: relative;     top: -878px;
+    left: 180px;">
+                        <img src="img/egg/hit.gif" style=" position: relative;z-index: 50;
+    height: 478px;
+    width: 400px;"></p>
+                </li>
+
+
+                <li>
+                    <p class="p2-di" style="    top: -10px;
+    left: -10px;
+    position: relative;">
+                        <img class="normal" src="img/egg/di.png">
+                    </p>
+                    <p class="p2-egg" style="    top: -500px;
+    position: relative;">
+                        <img class="normal" src="img/egg/egg.png">
+                    </p>
+                    <p class="p2-chui" style="display: none;    ">
+                        <img src="img/egg/1-0000.gif" style=" position: relative;z-index: 50;
+    top: -15px;
+    height: 400px;
+    width: 334px;
+    left: -160px;"></p>
+                    <p class="p2-ps" style="display: none;">
+                        <img src="assets/images/p2-ps.png"></p>
+                    <p class="p2-finish" style="display: none;    left: 90px;
+    position: relative;
+    top: -427px;">
+                        <img src="img/egg/egg2.png" style="width: 350px"></p>
+                    <p class="p2-hit" style="display: none;     position: relative;     top: -964px;
+    left: 180px;">
+                        <img src="img/egg/hit.gif" style=" position: relative;z-index: 50;
+    height: 478px;
+    width: 400px;"></p>
+                </li>
+                <li class="small">
+                    <p class="p2-di" style="    top: -60px;
+    left: 10px;
+    position: relative;">
+                        <img class="normal" src="img/egg/di.png">
+                    </p>
+                    <p class="p2-egg" style="    top: -500px;
+    position: relative;">
+                        <img class="normal" src="img/egg/egg.png">
+                    </p>
+                    <p class="p2-chui" style="display: none;">
+                        <img src="img/egg/1-0000.gif" style=" position: relative;z-index: 50;
+       top: -15px;
+    height: 400px;
+    width: 334px;
+    left: -160px;"></p>
+                    <p class="p2-ps" style="display: none;">
+                        <img src="assets/images/p2-ps.png"></p>
+                    <p class="p2-finish" style="display: none;    left: 140px;
+    position: relative;
+    top: -417px;">
+                        <img src="img/egg/egg2.png"></p>
+                    <p class="p2-hit" style="display: none;     position: relative;     top: -878px;
+    left: 180px;">
+                        <img src="img/egg/hit.gif" style=" position: relative;z-index: 50;
+    height: 478px;
+    width: 400px;"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<form id="modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate>
+    <div class="modal-dialog " style="top: 10%;width: 830px">
+        <div class="goldenEggLose" id="bg">
+            <div style="    width: 510px;    position: absolute;    height: 130px;    top: 150px;    left: 160px;">
+                <p id="answer"
+                   style="font-size: 25px;word-wrap:break-word;width: 100%;top: 50%;position: absolute;text-align: center;line-height: 30px;    transform: translate(0,-50%);"></p>
+            </div>
+            <div>
+                <div id="fix"
+                     style="font-size: 25px;top: 390px;position: absolute;text-align: center;left: 250px;line-height: 30px;">
+                    今天是你来擎谱的第<span style="font-size: 40px" id="dayCount"></span>天，
+                </div>
+            </div>
+            <div>
+                <div id="fix2"
+                     style="font-size: 25px;top: 443px;position: absolute;text-align: center;left: 260px;line-height: 30px;">
+                    感谢你对公司做出的贡献！
+                </div>
+            </div>
+            <div>
+                <div id="dayHint"
+                     style="font-size: 20px;top: 480px;width: 609px;position: absolute;text-align: center;left: 108px;line-height: 30px;word-wrap:break-word;"></div>
+            </div>
+            <div>
+                <div id="nickName"
+                     style="font-size: 35px;color:white;top: 310px;position: absolute;text-align: center;left: 240px;line-height: 30px;"></div>
+            </div>
+            <div>
+                <div id="name"
+                     style="font-size: 35px;color:white;top: 310px;position: absolute;text-align: center;left: 480px;line-height: 30px;"></div>
+            </div>
+            <div>
+                <image id="headImage"
+                       style="position: absolute;top:289px;left:376px;width: 74px;height: 74px;border-radius: 37px;"
+                       src="img/touxiang.png"></image>
+            </div>
+            <div onclick="closeEgg()" style="z-index: 10000">
+                <image style="position: absolute;top:70px;left:770px;z-index: 10000;" src="img/guanbi.png"></image>
+            </div>
+            <div >
+                <image id="kuang" style="position: absolute;top:512px;left:172px;z-index: 2"></image>
+            </div>
+            <div>
+                <image id="image" style="position: absolute;top:525px;left:185px;width: 459px;z-index:1;height: 258px;"></image>
+            </div>
+            <div>
+                <image id="ip" style="position: absolute;z-index: 3"></image>
+            </div>
+            <div>
+                <image id="winDai" style="position: absolute;top: 50px;height: 300px;width: 850px;display: none;"
+                       src="img/caidai.png"></image>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<form id="stageModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate>
+    <div class="modal-dialog " style="top: 20%;">
+        <div style="background: url('img/jinianribeijing.png') no-repeat center top;width: 594px;height: 684px;">
+            <div>
+                <image id="headImageStage"
+                       style="position: absolute;top:36px;left:41px;width: 119px;height: 119px;border-radius: 60px;"
+                       src="img/touxiang.png"></image>
+            </div>
+            <div>
+                <div id="nickNameStage"
+                     style="font-size: 25px;color:#165aa6;top: 110px;position: absolute;text-align: center;left: 280px;line-height: 30px;"></div>
+            </div>
+            <div>
+                <div id="nameStage"
+                     style="font-size: 25px;color:#165aa6;top: 110px;position: absolute;text-align: center;left: 410px;line-height: 30px;"></div>
+            </div>
+            <div>
+                <div id="stage"
+                     style="font-size: 25px;top: 160px;width: 420px;max-width: 340px;color:#165aa6;position: absolute;text-align: center;left: 210px;line-height: 30px;word-wrap:break-word;"></div>
+            </div>
+            <div style="    width: 250px;    position: absolute;    height: 130px;    top: 421px;    left: 198px;">
+                <div id="dayHintStage"
+                     style="font-size: 25px;color: #007f75;top: 50%;width: 100%;transform: translate(0,-50%);position: absolute;text-align: center;line-height: 40px;word-wrap:break-word;"></div>
+            </div>
+            <div onclick="closeStage()">
+                <image style="position: absolute;top:18px;right:13px;z-index: 10000" src="img/guanbi.png"></image>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<form id="birthDayModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate>
+    <div class="modal-dialog " style="top: 20%;">
+        <div style="background: url('img/shengribeijing.png') no-repeat center top;width: 594px;height: 684px;">
+            <div>
+                <image id="headImageBirthday"
+                       style="position: absolute;top:36px;left:41px;width: 119px;height: 119px;border-radius: 60px;"
+                       src="img/touxiang.png"></image>
+            </div>
+            <div>
+                <div id="nickNameBirthday"
+                     style="font-size: 25px;color:#165aa6;top: 110px;position: absolute;text-align: center;left: 290px;line-height: 30px;"></div>
+            </div>
+            <div>
+                <div id="nameBirthday"
+                     style="font-size: 25px;color:#165aa6;top: 160px;position: absolute;text-align: center;left: 290px;line-height: 30px;"></div>
+            </div>
+            <div style="    width: 380px;    position: absolute;    height: 90px;    top: 309px;    left: 136px;">
+                <div id="dayHintBirthday"
+                     style="font-size: 30px;color: #e55465;top: 50%;width: 100%;position: absolute;text-align: center;line-height: 40px;word-wrap:break-word;transform: translate(0,-50%);"></div>
+            </div>
+            <div onclick="closeBirthday()">
+                <image style="position: absolute;top:18px;right:13px;z-index: 10000" src="img/guanbi.png"></image>
+            </div>
+        </div>
+    </div>
+</form>

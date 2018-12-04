@@ -1,0 +1,30 @@
+{#if $T.data.length>0}
+{#foreach $T.data as record}
+    <div class="row addBottom"  style="    border-bottom: 1px solid #DBDDDE;padding-bottom: 10px;padding-top: 10px;">
+        <input type="text"   id="userId{$T.record.index}"   style="display: none;" value="{$T.record.id}"  >
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label col-md-2">姓名  ：</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" readonly  value="{$T.record.name}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label col-md-2">来访  <span style="color:red;">*</span>：</label>
+                <div class="col-md-10">
+                    <input type="number" class="form-control"  id="intention{$T.record.index}" value="{$T.record.weekIntention}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="control-label col-md-2">认筹  <span style="color:red;">*</span>：</label>
+                <div class="col-md-10">
+                    <input type="number" class="form-control"  id="finish{$T.record.index}" value="{$T.record.weekFinish}">
+                </div>
+            </div>
+        </div>
+    </div>
+{#/for}
+{#/if}

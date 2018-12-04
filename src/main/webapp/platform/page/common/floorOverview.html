@@ -1,0 +1,129 @@
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">楼层分布图</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="log-subtitle">
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a href="javascript:void(0)" data-toggle="tab" aria-expanded="true"  onclick="selectClient(0)" id="myClient" style="display: none">我的客户</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:void(0)" data-toggle="tab" aria-expanded="false" onclick="selectClient(1)" id="allClient">所有客户</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:void(0)" data-toggle="tab" aria-expanded="false" onclick="selectClient(2)" id="userName">查看员工</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="file-manager">
+                    <ul class="nav nav-pills  secondary col-md-8">
+                        <li class="active">
+                            <a href="javascript:void(0)" data-toggle="tab" aria-expanded="true"  onclick="selectClientType(0)" id="selectClient0">意向客户</a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:void(0)" data-toggle="tab" aria-expanded="false" onclick="selectClientType(1)" id="selectClient1">签约客户</a>
+                        </li>
+                    </ul>
+                    <div class=" col-md-3">
+                        <div class="selection-box">
+                            <label class="control-label col-md-3" style="height: 38px; line-height: 38px; text-align: right;">铺位号：</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="doorNum">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <div class="pull-right col-md-1">
+                        <button class="btn btn-success waves-effect waves-light" onclick="query()">查询</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="table">
+                    </table>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+
+                <div class="mark-situation  col-sm-12 ">
+                    <div class="col-md-12  marks">
+                        <label>注：</label>
+                        <span> <img src="assets/images/1.png"></span>
+                        <span><img src="assets/images/2.png"></span>
+                        <span><img src="assets/images/3.png"></span>
+                        <span><img src="assets/images/4.png"></span>
+                    </div>
+                    <br>
+                    <div class="col-md-12 marks">
+                        <span style="margin-left: 45px;"><img src="assets/images/5.png"></span>
+                        <span><img src="assets/images/6.png"></span>
+                        <span><img src="assets/images/7.png"></span>
+                        <span><img src="assets/images/8.png"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs tabs tabs-top" id="floorTab">
+                    </ul>
+                    <div class="col-sm-12" >
+                        <div id="canvas" class="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="selectUser" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">选择员工</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="control-label col-sm-3" >手机：</label>
+                            <div class="col-sm-9" >
+                                <input type="text" class="form-control" style="width: 100% !important;" id="selectUserPhone">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label  col-sm-3">姓名：</label>
+                            <div class="col-sm-9" >
+                                <input type="text" class="form-control"  style="width: 100% !important;" id="selectUserName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="inquire pull-right">
+                            <button class="btn btn-success waves-effect waves-light" onclick="queryUser()">查询</button>
+                            <button class="btn btn-primary waves-effect waves-light" onclick="resetSelectUser()">重置</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table id="selectUserTable">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

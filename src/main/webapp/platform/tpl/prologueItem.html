@@ -1,0 +1,48 @@
+{#if $T.data.length>0}
+{#foreach $T.data as record}
+    <div class="row addBottom"  style="    border-bottom: 1px solid #DBDDDE;padding-bottom: 10px;padding-top: 10px;">
+        <input type="text"   id="prologueId{$T.record.index}"   style="display: none;" value="{$T.record.id}"  >
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label col-md-2">名称  <span style="color:red;">*</span>：</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control"  id="prologueName{$T.record.index}" value="{$T.record.name}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="control-label col-md-2">概率  <span style="color:red;">*</span>：</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control"  id="prologueRate{$T.record.index}" value="{$T.record.rate}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label col-md-2">开场白  <span style="color:red;">*</span>：</label>
+                <div class="col-md-10">
+                    <input type="text"   id="prologuePath1{$T.record.index}"   style="display: none;"  value="{$T.record.path1}" >
+                    <div id="prologueDiv1{$T.record.index}" style="text-align: left;"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="control-label col-md-2">挽回  <span style="color:red;">*</span>：</label>
+                <div class="col-md-10">
+                    <input type="text"   id="prologuePath2{$T.record.index}"   style="display: none;"  value="{$T.record.path2}" >
+                    <div id="prologueDiv2{$T.record.index}" style="text-align: left;"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label col-md-2">挂断  <span style="color:red;">*</span>：</label>
+                <div class="col-md-10">
+                    <input type="text"   id="prologuePath3{$T.record.index}"   style="display: none;"  value="{$T.record.path3}" >
+                    <div id="prologueDiv3{$T.record.index}" style="text-align: left;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{#/for}
+{#/if}

@@ -1,0 +1,32 @@
+<div id="selectProjectModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">选择项目</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="control-label col-sm-3" >名称：</label>
+                            <div class="col-sm-9" >
+                                <input type="text" class="form-control" style="width: 100% !important;" id="selectProjectModalName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="inquire pull-right">
+                            <button class="btn btn-primary waves-effect waves-light" onclick="SelectProjectModal.resetSelectProjectModal()">重置</button>
+                            <button class="btn btn-success waves-effect waves-light" onclick="SelectProjectModal.querySelectProjectModal()">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table id="selectProjectModalTable">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

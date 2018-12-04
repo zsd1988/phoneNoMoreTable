@@ -1,0 +1,36 @@
+{#if $T.index == 0 }
+    {#if $T.data.length>0}
+        {#foreach $T.data as record}
+            <div class="row" >
+                <label class="control-label  project-name" id="{$T.record.id}">{$T.record.name}</label>
+            </div>
+            <div   class="row" >
+                {#foreach $T.record.project as project}
+                    <div class="checkbox  checkbox-info col-md-2">
+                        {#if $T.project.isHave}
+                        <input id="{$T.project.id}" type="checkbox"  checked>
+                        {#else}
+                        <input id="{$T.project.id}" type="checkbox" >
+                        {#/if}
+                        <label for="{$T.project.id}">{$T.project.name}</label>
+                    </div>
+                {#/for}
+            </div>
+        {#/for}
+    {#/if}
+{#else}
+    {#foreach $T.data as record}
+        <div class="checkbox  checkbox-info col-md-1">
+            {#if $T.record.isHave}
+            <input id="{$T.record.id}" type="checkbox"  checked>
+            {#else}
+            <input id="{$T.record.id}" type="checkbox"  >
+            {#/if}
+            {#if $T.record.isOnline}
+            <label for="{$T.record.id}" style="color: black">{$T.record.name}</label>
+            {#else}
+            <label for="{$T.record.id}" style="color: lightgrey">{$T.record.name}</label>
+            {#/if}
+        </div>
+    {#/for}
+{#/if}

@@ -1,0 +1,91 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+            <h1><b>话务统计</b> </h1>
+    </div>
+</div>
+
+<div class="row traffic">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="col-md-12">
+                <div class="input-group-time col-md-2" >
+                    <label class="control-label col-md-4">开始时间:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="startTime">
+                    </div>
+                </div>
+                <div class="input-group-time col-md-2">
+                    <label class="control-label col-md-4">结束时间:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="endTime">
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group-number col-md-2" >
+                    <label class="control-label col-md-4">工号:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control"  id="workNumber">
+                    </div>
+                </div>
+                <div class="input-group-number col-md-2">
+                    <label class="control-label col-md-4">工作模式:</label>
+                    <div class="col-md-8">
+                        <select class="form-control selectpicker" id="voiceType" >
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group-number col-md-2">
+                    <label class="control-label col-md-4">角色:</label>
+                    <div class="col-md-8">
+                        <select class="form-control selectpicker" id="roleType">
+                            <option value="cs" selected>客服</option>
+                            <option value="interview">约访</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group-number col-md-2">
+                    <label class="control-label col-md-4">项目名称:</label>
+                    <div class="col-md-8">
+                        <select class="form-control selectpicker" id="projectId" >
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="input-group-time  col-md-2" id="groupIdDiv">
+                    <label class="control-label col-md-4">员工组:</label>
+                    <div class="col-md-8">
+                        <select class="form-control selectpicker" id="groupId">
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="inquire ">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="inquire pull-right">
+                        <button class="btn btn-default waves-effect" onclick="query()">查询</button>
+                        <button class="btn btn-default waves-effect" onclick="reset()">重置</button>
+                        <button class="btn btn-success waves-effect waves-light" onclick="clearStatistics()" style="display: none" id="clear">清空缓存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <table id="table">
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

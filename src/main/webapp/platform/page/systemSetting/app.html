@@ -1,0 +1,71 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+        <h1><b>版本管理</b> </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="pull-right">
+                <button class="btn btn-default waves-effect" onclick="query()">查询</button>
+                <button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#modal" onclick="addApp()" >新增</button>
+            </div>
+            <table id="table">
+            </table>
+        </div>
+    </div>
+</div>
+
+<form id="modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  onclick="clearModalData()">×</button>
+                <h4 class="modal-title" id="title">新增：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text"    name="id" style="display: none">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">类型  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker"  name="osType" id="osType">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">最低版本  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="number" class="form-control"  required   name="leastVersion" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">下载地址 ：</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control " style="display: none"  name="downloadUrl"  id="downloadUrl" >
+                                <div id="uploadZip"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="saveApp()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+

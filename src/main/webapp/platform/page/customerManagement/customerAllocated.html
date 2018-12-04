@@ -1,0 +1,119 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+        <h1><b>待分配资源</b> </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+             <div class="col-md-3">
+                 <h4 class="m-t-0"><b>待分配资源</b> </h4>
+                 <div class="customer-grouping">
+                             <ul id="allocatedClientGroup" class="ztree">
+                             </ul>
+
+                 </div>
+             </div>
+            <div class="col-md-9">
+                <div class="selection-box col-md-4">
+                    <label class="control-label col-md-4">客户列表:</label>
+                </div>
+                <div class="inquire pull-right">
+                    <button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#con-distribution-modal"  id="distributionClient"  style="display: none">客户分配</button>
+                </div>
+
+                <table id="table">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="con-distribution-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  id="closeDistribution" onclick="clearDistributionData()">×</button>
+                <h4 class="modal-title" id="title">客户分配：</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">项目  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" name="projectId"  id="projectOption" required>
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">客户类别<span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select  class="form-control" id="importTagOption"  name="importTag"  required>
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">数量 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select  class="form-control"  id="limit"  name="limit"  required>
+                                    <option>100</option>
+                                    <option>300</option>
+                                    <option>500</option>
+                                    <option>1000</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">分配至->客户组别 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select  class="form-control" id="clientGroupOption"  name="groupId"  required>
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">分配至->跟进类别<span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="clientGroupTypeOption"  name="clientGroupType"  required>
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" onclick="clearModalData()">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="distributionClient()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,471 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+            <h1><b>客户分组</b> </h1>
+    </div>
+</div>
+
+<div class="row traffic" id="addOrSelectClient" style="display: none" >
+     <div class="col-sm-12">
+        <div class="card-box">
+            <div class="col-md-8">
+                <div class="input-group-time col-md-4">
+                    <label class="control-label col-md-4">客户号码:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="selectPhone">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="inquire pull-right">
+                    <button class="btn btn-success waves-effect waves-light" onclick="toCallPhone()" id="callPhone" style="display: none">拨打</button>
+                    <button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#con-client-modal" id="addClient" >新增</button>
+                    <button class="btn btn-success waves-effect waves-light" onclick="query()">查询</button>
+                </div>
+            </div>
+        </div>
+      </div>
+ </div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+             <div class="col-md-3">
+                 <h4 class="m-t-0"><b>客户分组</b> </h4>
+                 <div class="customer-grouping">
+                     <ul>
+                         <li>
+                             <ul id="clientGroupList" class="ztree">
+                             </ul>
+                             <div class="pull-center">
+                                 <button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#con-client-group-modal"  id="addClientGroupButton"  style="display: none">新增</button>
+                             </div>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+            <div class="col-md-9">
+                <div class="input-group-sm col-md-4">
+                    <label class="control-label col-md-3" style="height:3.0rem; line-height: 3.0rem;">客户状态:</label>
+                    <div class="col-md-7">
+                        <select class="form-control selectpicker"  id="clientStatusOption"   onchange="changeGroupType(this)">
+                        </select>
+                    </div>
+                </div>
+                <table id="table">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="con-client-group-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"  id="closeClientGroup" data-dismiss="modal" aria-hidden="true"  onclick="clearModalData()">×</button>
+                <h4 class="modal-title" id="title3">新增客户分组：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden"   id="clientGroupId"   name="id"   value="" >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">组别名称  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text"   name="clientGroupName"  id="clientGroupName"  class="form-control" required  data-parsley-trigger="focusout"    placeholder="单行输入"  >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" onclick="clearModalData()">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="saveClientGroup()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="con-client-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  id="closeClient" onclick="clearModalData()">×</button>
+                <h4 class="modal-title" id="title">添加客户：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden"   id="id"   name="id"    value="{$T.data.id}"  >
+                <input type="hidden"   id="isDistribute"   name="isDistribute"    value='1'  >
+                <input type="hidden"   id="groupId"   name="groupId"    value='0'  >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">客户姓名  ：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control"  data-parsley-trigger="focusout"    placeholder="单行输入"  id="clientName" name="name">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">性别  ：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" name="sex" id="sex">
+                                    <option></option>
+                                    <option value="1">男</option>
+                                    <option value="0">女</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">手机号码  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" required  data-parsley-trigger="focusout"    placeholder="单行输入"  id="phone"  name="phone" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group no-margin">
+                        <label class="control-label col-md-4">年龄段  ：</label>
+                        <div class="col-md-7">
+                            <select  class="form-control" id="YearTagOption"  name="yearTag" >
+                            </select>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">区域  ：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" name="area"  id="areaOption">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">项目  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" name="projectId"  id="projectOption" required>
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" onclick="clearModalData()">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="saveClient()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="con-distribution-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  onclick="clearModalData()">×</button>
+                <h4 class="modal-title" id="title1">客户分配：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text"   id="id1"   name="id1"    value="{$T.data.id}" style="display: none" >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">项目  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">类别  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">数量  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">出生年份  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">工号 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" onclick="clearModalData()">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="saveDepartment()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="detailModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" data-parsley-validate   style="display: none;">
+    <div class="modal-dialog"  style="width:900px">
+        <div class="modal-content" style="background:#C7EECE;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  onclick="closeClient()">×</button>
+                <h4 class="modal-title">客户详情</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text"    name="id" style="display: none">
+                <div class="row rowCount">
+                    <div class="col-sm-12">
+                        <h4 class="modal-title"><b>客户信息</b> </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12  call-screen">
+                        <div class="card-box" style="background:#C7EECE;">
+                            <div class="col-md-12">
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">客户姓名：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" id="name" name="name">
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">性别：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker"  name="sex">
+                                            <option value ="1" >男</option>
+                                            <option value ="0" >女</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-2">手机号：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" readonly  name="phone">
+                                    </div>
+                                    <div class="col-md-2" onclick="callPhone()">
+                                        <img src="assets/images/unselected.png">
+                                        <img src="assets/images/phone.png" style="display: none">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">年龄段：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" id="yearTag" name="yearTag">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">区域：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" placeholder="全部" id="area" name="area">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">实时状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" id="onceStatus" name="onceStatus">
+                                            <option value = "true">实时</option>
+                                            <option value = "false">非实时</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">客户状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" onChange="setReviewStatus(this);" id="status" name="status">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">审核状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker"  id="reviewStatus" name="reviewStatus">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">约访状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" onChange="setConfirmStatus(this);" id="confirmStatus" name="confirmStatus">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <h4 class="m-t-0"><b onclick="getCommonSpeech()">备注（常用短语）</b> </h4>
+                                    <textarea class="form-control" rows="5" id="des" name="des"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect waves-light" id="detailTransClient" style="display: none" onclick="detailToTransClient()">移组</button>
+                    <button type="button" class="btn btn-success waves-effect waves-light" onclick="saveClientModal()">保存</button>
+                </div>
+                <div class="row rowCount">
+                    <div class="col-sm-12">
+                        <h4 class="modal-title">通话记录 <a href="javascript:void(0)" onclick="callRecordRefresh()"  style='text-decoration:underline;'>[刷新]</a></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box" style="background:#C7EECE;">
+                            <video id="myMp3" controls="controls" style="width: 100%; height: 30px;display: none"   preload="auto" ></video>
+                            <table id="callRecordTable">
+                            </table>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<button class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#con-move-modal" id="moveGroupType" style="display: none;"></button>
+<form id="con-move-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  id="closeMoveGroupType" onclick="clearGroupTypeData()">×</button>
+                <h4 class="modal-title" id="title2">客户移组：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text"     name="id"   style="display: none" >
+                <input type="text"     name="groupId"   style="display: none" >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">客户姓名  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control"  data-parsley-trigger="focusout"  readonly   name="name" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">被叫号码  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" required  data-parsley-trigger="focusout"  readonly  placeholder="单行输入"   name="phone" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">所属组别 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control"   data-parsley-trigger="focusout"  readonly  placeholder="单行输入"   name="groupTypeStr" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">项目名称 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker" id="projectId" required  name="projectId">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">移动至 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control selectpicker" id="clientGroupTypeOption" required  name="groupType">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" onclick="clearGroupTypeData()">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="moveClientGroupType()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

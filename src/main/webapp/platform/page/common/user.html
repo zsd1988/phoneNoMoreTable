@@ -1,0 +1,373 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+        <h1><b>用户管理</b></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="col-md-4 left">
+                <h4 class="m-t-0"><b>所有员工组</b></h4>
+                <div class="role-list">
+                    <ul id="mapUserGroupList" class="ztree">
+
+                    </ul>
+                    <div class="pull-center">
+                        <button class="btn btn-info waves-effect waves-light" data-toggle="modal"
+                                data-target="#con-groups-modal" id="addUserGroupButton">新增
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 content">
+                <h4 class="m-t-0"><b>选中人员信息</b></h4>
+                <div class="role-list">
+                    <form id="con-user-update-modal" data-parsley-validate style="display:none">
+                        <input type="hidden" class="form-control" placeholder="单行输入" name="id" id="userId">
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">工号：</label>
+                                <div class="col-md-9">
+                                    <input type="number" required data-parsley-trigger="focusout" class="form-control"
+                                           name="workNumber" id="workNumber" placeholder="工号">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">姓名：</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="单行输入" name="name"
+                                           id="userName">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">头像：</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="headImageSourcePath" name="headImage"
+                                           style="display: none;"/>
+                                    <div id="headImage" style="float: left;"></div>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">组别：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control selectpicker" required id="updateUserGroupList"
+                                            name="groupId">
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">组长：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" required name="isTeamLeader" id="isTeamLeader">
+                                        <option value="true">是</option>
+                                        <option value="false">否</option>
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">角色：</label>
+                                <div class="col-md-9 ">
+                                    <select class="form-control selectpicker" required id="updateRoleListOption"
+                                            name="roleId">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">类型：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" required name="workType" id="workType">
+                                        <option value="FullTime">全职</option>
+                                        <option value="PartTime">兼职</option>
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">入职时间：</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="employeeDay">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">生日：</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="birthDay">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">分机号：</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="extNum" id="extNum">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">密码：</label>
+                                <div class="col-md-9">
+                                    <input type="password" placeholder="登 录 密 码" required class="form-control"
+                                           data-parsley-trigger="focusout" name="password" id="password">
+                                    <p style="color:green; display:none;" id="info3"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">离职：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" required name="isDel" id="isUserDel">
+                                        <option value="true">是</option>
+                                        <option value="false">否</option>
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="pull-center">
+                        <button class="btn btn-info waves-effect waves-light" data-toggle="modal"
+                                data-target="#con-user-modal">新增
+                        </button>
+                        <button type="button" class="btn btn-success waves-effect waves-light" onclick="updateUser()">
+                            保存
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 right">
+                <h4 class="m-t-0"><b>客户组</b></h4>
+                <div class="role-list">
+                    <ul>
+                        <li>
+                            <ul id="clientGroupMapList" class="ztree">
+                            </ul>
+                        </li>
+                        <li class="">
+                            <div class="pull-center">
+                                <button type="button" class="btn btn-success waves-effect waves-light"
+                                        onclick="saveUserClientGroup()">保存
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="con-groups-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate>
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="closeUserGroup" data-dismiss="modal" aria-hidden="true"
+                        onclick="clearModalData()">×
+                </button>
+                <h4 class="modal-title" id="title">新增组别：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="groupId" name="id" value="0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">组别名称 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" name="groupName" id="groupName" class="form-control" required
+                                       data-parsley-trigger="focusout" placeholder="单行输入">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">所属组别 <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="userGroupOption" name="fid">
+                                </select>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">组昵称 ：</label>
+                            <div class="col-md-7">
+                                <input type="text" name="nickName" id="nickName" class="form-control">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">功夫招式 ：</label>
+                            <div class="col-md-7">
+                                <input type="text" name="gongfu" id="gongfu" class="form-control">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">每日目标 ：</label>
+                            <div class="col-md-7">
+                                <input type="text" name="count" id="count" class="form-control">
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"
+                        onclick="clearModalData()">取消
+                </button>
+                <button type="button" class="btn btn-success waves-effect waves-light" onclick="saveUserGroup()">保存
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="con-user-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+      aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate>
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeUser"
+                        onclick="clearUserData()">×
+                </button>
+                <h4 class="modal-title">新增员工：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="" name="id" value="0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">工号：</label>
+                                <div class="col-md-9">
+                                    <input type="number" required data-parsley-trigger="focusout" class="form-control"
+                                           name="workNumber" placeholder="工号">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">姓名：</label>
+                                <div class="col-md-9">
+                                    <input type="text" required class="form-control" placeholder="相同角色，不能存在同名"
+                                           name="name">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">头像：</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="headImageCreateSourcePath" name="headImage"
+                                           style="display: none;"/>
+                                    <div id="headImageCreate" style="float: left;"></div>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">所属组别：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" required id="addUserGroupList" name="groupId">
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">组长：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" required name="isTeamLeader" id="isTeamLeaderCreate">
+                                        <option value="true">是</option>
+                                        <option value="false">否</option>
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">角色：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" required id="addRoleListOption" name="roleId">
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">密码：</label>
+                                <div class="col-md-9">
+                                    <input type="password" placeholder="登 录 密 码" required class="form-control"
+                                           data-parsley-trigger="focusout" name="password">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">类型：</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" required name="workType">
+                                        <option value="FullTime">全职</option>
+                                        <option value="PartTime">兼职</option>
+                                    </select>
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="control-label col-md-3">分机号：</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="单行输入" name="extNum">
+                                    <p style="color:green; display:none;"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"
+                        onclick="clearModalData()">取消
+                </button>
+                <button type="button" class="btn btn-success waves-effect waves-light" onclick="saveUser()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
+

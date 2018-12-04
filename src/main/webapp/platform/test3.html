@@ -1,0 +1,43 @@
+<html>
+<head>
+    <link rel="stylesheet" href="my-styles.css">
+</head>
+<body>
+<video id="remoteVideo"></video>
+<video id="localVideo" muted="muted"></video>
+<button id="endCall">End Call</button>
+
+<script src="js/sip-0.9.2.min.js"></script>
+<script src="my-javascript.js"></script>
+
+<script type="text/javascript">
+
+    var options = {
+        media: {
+            remote: {
+                audio: document.getElementById('remoteVideo')
+            }
+        },
+        ua: {
+            uri: '1009@192.168.0.217:5060',
+            wsServers: 'wss://192.168.0.217:7443',
+            password: '1234',
+            iceCheckingTimeout:100000,
+        }
+    };
+    var simple = new SIP.WebRTC.Simple(options);
+
+    var endButton = document.getElementById('endCall');
+    endButton.addEventListener("click", function () {
+        // simple.hangup();
+        // alert("Call Ended");
+        simple.call('1004');
+    }, false);
+
+
+    simple.on('ringing', function() {
+        simple.answer();
+    });
+</script>
+</body>
+</html>

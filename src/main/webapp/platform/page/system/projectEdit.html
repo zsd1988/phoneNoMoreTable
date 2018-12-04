@@ -1,0 +1,46 @@
+<!-- Page-Title -->
+<form method="post"  enctype="multipart/form-data"   class="form-horizontal" data-parsley-validate  id="form">
+    <input type="text"   id="id"   name="id"   style="display: none;" value="{$T.data.id}"  >
+    <input type="text"   id="isDel"   style="display: none;" value="{$T.data.isDel}"  >
+    <div class="row rowCount">
+        <div class="col-sm-12">
+            <div class="card-box"  data-parsley-validate >
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="m-t-0 page-header"><b id="title">新增项目</b>
+                            <div class="pull-right">
+                                　　<button type="button" class="btn btn-success waves-effect waves-light" onclick="saveProject()">保存</button>
+                            </div>
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="first-list">
+                            <label for="projectName" class="control-label">项目名称　<span style="color:red;">*</span>：</label>
+                            <input type="text" class="form-control" required id="projectName"  name="name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-box" >
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="m-t-0 page-header"><b >开场白管理</b>
+                            <div class="pull-right">
+                                　　<button type="button" class="btn btn-info waves-effect waves-light" onclick="addPrologue(false)">添加开场白</button>
+                            </div>
+                        </h4>
+                    </div>
+                </div>
+                <div id="prologueList">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+

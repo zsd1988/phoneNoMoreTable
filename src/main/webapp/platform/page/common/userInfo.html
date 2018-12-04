@@ -1,0 +1,78 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+        <h1><b>用户信息</b> </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <table id="table">
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<form id="modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-parsley-validate >
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  onclick="clearModalData()">×</button>
+                <h4 class="modal-title" id="title">新增：</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text"   id="id"   name="id" style="display: none"  >
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">姓名  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" disabled required id="name"  name="name" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">入职日期  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control"  required id="employeeDay"  name="employeeDayStr" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">生日  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control"  required id="birthDay"  name="birthDayStr" >
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label class="control-label col-md-4">头像  <span style="color:red;">*</span>：</label>
+                            <div class="col-md-7">
+                                <input type="text" id="headImageSourcePath" name="headImage"
+                                       style="display: none;"/>
+                                <div id="headImage" style="float: left;"></div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success waves-effect waves-light"  onclick="save()">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

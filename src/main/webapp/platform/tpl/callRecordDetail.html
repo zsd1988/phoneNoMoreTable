@@ -1,0 +1,138 @@
+<form id="detailModal{$T.index}" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true" data-parsley-validate   style="display: none;">
+    <div class="modal-dialog"  style="width:900px">
+        <div class="modal-content" style="background:#C7EECE;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"  onclick="{$T.callRecordCloseClientFunc}('{$T.id}')">✖</button>
+                <button type="button" class="zoom" data-dismiss="modal" aria-hidden="true"  onclick="{$T.callRecordMinClientFunc}('{$T.id}')">一</button>
+                <h4 class="modal-title">通话详情</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text"    name="id" style="display: none">
+                <input type="text"    name="callRecordId" style="display: none">
+                <div class="row rowCount">
+                    <div class="col-sm-12">
+                        <h4 class="modal-title"><b>客户信息</b> </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12  call-screen">
+                        <div class="card-box" style="background:#C7EECE;">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="input-group-sm col-md-4">
+                                        <label class="control-label col-md-4">客户姓名：</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"  name="name">
+                                        </div>
+                                    </div>
+                                    <div class="input-group-sm col-md-4">
+                                        <label class="control-label col-md-4">性别：</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control selectpicker"  name="sex">
+                                                <option value ="1" >男</option>
+                                                <option value ="0" >女</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="selection-box col-md-4">
+                                        <label class="control-label col-md-3">手机号：</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" readonly name="phone" style="padding: 0;text-align: center;">
+                                        </div>
+                                        <div class="col-md-2" onclick="{$T.callRecordCallPhoneFunc}('{$T.id}')">
+                                            <img src="assets/images/unselected.png">
+                                            <img src="assets/images/phone.png" style="display: none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="selection-box col-md-4">
+                                    <label class="control-label col-md-4">年龄段：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" id="yearTag{$T.index}" name="yearTag">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">区域：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" id="area{$T.index}" name="area">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">实时状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" name="onceStatus"  id="onceStatus{$T.index}">
+                                            <option value = "true">实时</option>
+                                            <option value = "false">非实时</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">客户状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" onChange="{$T.callRecordSetReviewStatusFunc}('{$T.id}');" id="status{$T.index}" name="status">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4">
+                                    <label class="control-label col-md-4">审核状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker"  id="clientModalReviewStatus{$T.index}" name="reviewStatus">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group-sm col-md-4" id="clientModalConfirmStatusDiv{$T.index}" style="display: none">
+                                    <label class="control-label col-md-4">约访状态：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker"  onChange="{$T.callRecordSetConfirmStatusFunc}('{$T.id}');" id="confirmStatus{$T.index}" name="confirmStatus">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group-sm col-md-4" >
+                                    <label class="control-label col-md-4">项目名称：</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control selectpicker" id="projectId{$T.index}" name="projectId">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <h4 class="m-t-0"><b  onclick="{$T.callRecordGetCommonSpeechFunc}('{$T.id}')">备注（常用短语）</b> </h4>
+                                    <textarea class="form-control" rows="5" id="des{$T.index}" name="des"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect waves-light" style="display: none" id="callRecordTransClient{$T.index}" onclick="{$T.callRecordTransClientFunc}('{$T.id}')">转移</button>
+                    <button type="button" class="btn btn-success waves-effect waves-light" id="saveTpClient{$T.index}" onclick="{$T.callRecordSaveClientFunc}('{$T.id}')">保存</button>
+                </div>
+                <div class="row rowCount">
+                    <div class="col-sm-12">
+                        <h4 class="modal-title">通话记录 <a href="javascript:void(0)" onclick="{$T.callRecordRecordRefreshFunc}('{$T.id}')"  style='text-decoration:underline;'>[刷新]</a></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box" style="background:#C7EECE;">
+                            <video id="myMp3{$T.index}" controls="controls" style="width: 100%; height: 30px;display: none"   preload="auto" ></video>
+                            <table id="callRecordTable{$T.index}">
+                            </table>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

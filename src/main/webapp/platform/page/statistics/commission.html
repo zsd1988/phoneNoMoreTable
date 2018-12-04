@@ -1,0 +1,51 @@
+<div class="row rowCount">
+    <div class="col-sm-12">
+            <h4 class="page-title"><b>提成统计</b> </h4>
+
+    </div>
+</div>
+
+<div class="row traffic">
+     <div class="col-sm-12">
+        <div class="card-box">
+            <div class="col-md-11">
+                <div class="input-group-time col-md-4">
+                    <label class="control-label">开始时间:</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="startTime" placeholder="单行输入" >
+                    </div>
+                </div>
+                <div class="input-group-time col-md-4">
+                    <label class="control-label">结束时间:</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="endTime" placeholder="单行输入" >
+                    </div>
+                </div>
+                <div class="selection-box col-md-4">
+                    <label class="control-label col-md-5">员工类型:</label>
+                    <div class="col-md-7">
+                        <select class="form-control">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="inquire pull-right">
+                    <button class="btn btn-success waves-effect waves-light" onclick="query()">查询</button>
+                </div>
+            </div>
+        </div>
+      </div>
+ </div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <table id="table">
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
