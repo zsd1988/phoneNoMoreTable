@@ -68,7 +68,7 @@ public class ClientScheduled {
 		this.clientToPublicInterview(clientList);
 
 		// 清除三个月前群呼明细CallNoAnswer的客户数据
-		Date lastCreateTime = DateUtil.add(now, DateUtil.ADDMONTH, -3);
+		Date lastCreateTime = DateUtil.add(now, DateUtil.ADDMONTH, -5);
 		GroupCallDetailCondition groupCallDetailCondition = new GroupCallDetailCondition();
 		groupCallDetailCondition.setLtCreateTime(lastCreateTime);
 		groupCallDetailCondition.setStatus(PublicEnum.GroupCallDetailStatus.CallNoAnswer);
