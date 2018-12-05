@@ -282,7 +282,7 @@ public class GroupCallDetailService {
 		conn.close();
 
 		if(StringUtils.isNotBlank(lastId)){
-			CheckImportFinishThread checkImportFinishThread = new CheckImportFinishThread(this, groupCallId, key);
+			CheckImportFinishThread checkImportFinishThread = new CheckImportFinishThread(this, groupCallId, key, lastId);
 			checkImportFinishThread.start();
 		}else{
 			CallPhoneListener._currentImportKey.remove(key);
@@ -297,17 +297,19 @@ public class GroupCallDetailService {
 		Boolean _isFinish = false;
 		String _key;
 		Integer _count = 0;
+		String _groupCallDetailId;
 
-		private CheckImportFinishThread(GroupCallDetailService groupCallDetailService, String id, String key){
+		private CheckImportFinishThread(GroupCallDetailService groupCallDetailService, String id, String key, String lastGroupCallDetailId){
 			_groupCallDetailService = groupCallDetailService;
 			_groupCallId = id;
 			_key = key;
+			_groupCallDetailId = lastGroupCallDetailId;
 		}
 
 		public void run(){
 			while ( !_isFinish){
 				try{
-					GroupCallDetail groupCallDetail = _groupCallDetailService.get(_groupCallId);
+					GroupCallDetail groupCallDetail = _groupCallDetailService.get(_groupCallDetailId);
 					if(groupCallDetail != null || _count > 600){
 						// 如果半小时没有导入完成自动释放
 						_isFinish = true;

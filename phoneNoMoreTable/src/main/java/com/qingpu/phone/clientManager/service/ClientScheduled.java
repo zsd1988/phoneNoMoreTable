@@ -78,15 +78,15 @@ public class ClientScheduled {
 			String clientId = groupCallDetail.getClientId();
 			Client client = clientService.get(clientId);
 			if(client != null){
-				CallRecordCondition callRecordCondition = new CallRecordCondition();
-				callRecordCondition.setClientId(clientId);
-				List<CallRecord> callRecordList = callRecordService.list(callRecordCondition);
-				if(callRecordList.isEmpty()){
+				//CallRecordCondition callRecordCondition = new CallRecordCondition();
+				//callRecordCondition.setClientId(clientId);
+				//List<CallRecord> callRecordList = callRecordService.list(callRecordCondition);
+				//if(callRecordList.isEmpty()){
 					groupCallDetailService.delete(groupCallDetail);
 					logger.info(groupCallDetail.getId() + " 删除群呼记录： " + JsonUtil.getJsonStrFromEntity(groupCallDetail));
 					clientService.deleteReally(client);
 					logger.info(clientId + " 删除客户记录： " + JsonUtil.getJsonStrFromEntity(client));
-				}
+				//}
 			}
 		}
 	}
